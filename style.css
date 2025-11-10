@@ -315,13 +315,15 @@ footer {
     background: #1a202c;
     color: white;
     text-align: center;
-    padding: 40px 0;
-    margin-top: 60px;
+    padding: 40px 20px; /* Add horizontal padding */
+    width: 100%;
+    box-sizing: border-box;
 }
 
 footer p {
     color: #a0aec0;
     font-size: 14px;
+    margin: 0;
 }
 
 /* Navigation Dropdown */
@@ -670,4 +672,5 @@ footer p {
 
 .tab-content.active {
     display: block;
+
 }
