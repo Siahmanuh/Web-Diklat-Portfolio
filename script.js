@@ -1,9 +1,11 @@
-// Data storage (in a real app, this would be a backend/database)
+// Data storage
 let projects = JSON.parse(localStorage.getItem('portfolioProjects')) || [];
 let blogs = JSON.parse(localStorage.getItem('portfolioBlogs')) || [];
 
+// Password system - CHANGE THIS PASSWORD TO SOMETHING SECURE!
+const ADMIN_PASSWORD = "yo_gurt";
+
 // DOM Elements
-// Admin Panel Toggle from Navigation
 const adminToggle = document.querySelector('.admin-nav-btn');
 const adminPanel = document.getElementById('admin-panel');
 const closeAdmin = document.getElementById('close-admin');
@@ -29,18 +31,20 @@ const blogsList = document.getElementById('blogs-list');
 const projectsContainer = document.getElementById('projects-container');
 const blogsContainer = document.getElementById('blogs-container');
 
-// Admin Panel Toggle
-// Admin Panel Toggle from Navigation
-
+// Admin Panel Toggle with Password
 adminToggle.addEventListener('click', () => {
-    adminPanel.classList.add('active');
+    const password = prompt("Enter admin password:");
+    if (password === ADMIN_PASSWORD) {
+        adminPanel.classList.add('active');
+    } else if (password !== null) {
+        alert("Incorrect password!");
+    }
 });
 
 closeAdmin.addEventListener('click', () => {
     adminPanel.classList.remove('active');
 });
 
-// Rest of your existing JavaScript for projects, blogs, etc.
 // Tab Switching
 tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
